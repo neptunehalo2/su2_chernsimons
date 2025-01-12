@@ -20,16 +20,16 @@ sigma = [sigma_1, sigma_2, sigma_3]
 
 import numpy as np
 
-# Funzione per creare un elemento casuale di SU(2) usando un quaternione
+# Function to create a random matrix in the SU(2) algebra using the quaternion statement
 def create_random_SU2_from_quaternion():
-    # Genera numeri casuali per i componenti del quaternione
+    # Generate random numbers for the quaterion formula
     a, b, c, d = np.random.randn(4)
     
-    # Normalizza il quaternione in modo che a^2 + b^2 + c^2 + d^2 = 1
+    # Nomralize the quaternion such a^2 + b^2 + c^2 + d^2 = 1
     norm = np.sqrt(a**2 + b**2 + c**2 + d**2)
     a, b, c, d = a / norm, b / norm, c / norm, d / norm
     
-    # Costruisci la matrice SU(2) a partire dal quaternione
+    # Build the SU(2) matrix
     U = np.array([[a + 1j*b, c + 1j*d],
                   [-c + 1j*d, a - 1j*b]])
     
