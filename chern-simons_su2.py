@@ -115,14 +115,17 @@ def chern_simons_action(A, dx, dy, dz, k):
 
 # Main function
 def main():
-    # Create a random SU(2) gauge field
-    A = create_gauge_field(Lx, Ly, Lz)
-    
-    # Calculate the Chern-Simons action
-    action = chern_simons_action(A, dx, dy, dz, k)
-    
-    # Print the action
-    print(f"Chern-Simons action: {action}")
+    avg_action=0
+    for i in range(50):
+        # Create a random SU(2) gauge field
+        A = create_gauge_field(Lx, Ly, Lz)
+        
+        # Calculate the Chern-Simons action
+        action = chern_simons_action(A, dx, dy, dz, k)
+        avg_action+=action
+        # Print the action
+        print(f"Chern-Simons action: {avg_action}")
+    print(f"AverageChern-Simons action: {avg_action/50}")
 
 # Run the script
 if __name__ == "__main__":
